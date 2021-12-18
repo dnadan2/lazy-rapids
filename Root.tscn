@@ -3,7 +3,7 @@
 [ext_resource path="res://Characters/Treading Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenery/River Segment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Boat/Lifeboat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Scenery/Rocks/rock_tallA.fbx" type="PackedScene" id=5]
+[ext_resource path="res://Scenery/rock_tallA.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Root.gd" type="Script" id=6]
 
 [node name="Spatial" type="Spatial"]
@@ -34,8 +34,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
 [node name="Lifeboat" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.8, -1.20797e-07, -5.28019e-15, 0, -3.49691e-08, 0.8, -1.20797e-07, 0.8, 3.49691e-08, 0, 0.100723, 0 )
 
-[node name="rock_tallA" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.182425, -4.2225 )
-
 [node name="Treading Water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0794922, -2.68361 )
+
+[node name="rock_tallA" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19177, -4.9011 )

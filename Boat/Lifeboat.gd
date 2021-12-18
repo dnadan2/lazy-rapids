@@ -1,6 +1,6 @@
 extends RigidBody
 
-const ACCELERATION = 100
+const ACCELERATION = 10
 var targetXPos = null
 
 func transitionToXPos(xPos, size, delta):
