@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://default_env.tres" type="Environment" id=1]
+[ext_resource path="res://Characters/Camera.gd" type="Script" id=2]
+
+[node name="Camera" type="Camera"]
+transform = Transform( -1.25, 7.97669e-08, -1.71061e-07, -1.64502e-08, 1.08253, 0.624999, 1.88027e-07, 0.624999, -1.08253, -2.83117e-07, 1.88808, -1.71698 )
+environment = ExtResource( 1 )
+script = ExtResource( 2 )

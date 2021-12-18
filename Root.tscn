@@ -1,17 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Characters/Treading Water2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Treading Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenery/River Segment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Boat/Lifeboat.tscn" type="PackedScene" id=3]
-[ext_resource path="res://default_env.tres" type="Environment" id=4]
 [ext_resource path="res://Assets/Scenery/Rocks/rock_tallA.fbx" type="PackedScene" id=5]
-[ext_resource path="res://Characters/Waving.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Root.gd" type="Script" id=6]
 
 [node name="Spatial" type="Spatial"]
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 1.5, 1.5 )
-environment = ExtResource( 4 )
+script = ExtResource( 6 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 60, 0 )
@@ -26,14 +22,20 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
 [node name="River Segment3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20 )
 
+[node name="River Segment4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30 )
+
+[node name="River Segment5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40 )
+
+[node name="River Segment6" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
+
 [node name="Lifeboat" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.8, -1.05281e-08, 1.20337e-07, 0, 0.796956, 0.0697246, -1.20797e-07, 0.0697246, -0.796956, 0, 0.115, 0 )
+transform = Transform( -0.8, -1.20797e-07, -5.28019e-15, 0, -3.49691e-08, 0.8, -1.20797e-07, 0.8, 3.49691e-08, 0, 0.100723, 0 )
 
 [node name="rock_tallA" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.182425, -4.2225 )
 
 [node name="Treading Water" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0786362, -2.56909 )
-
-[node name="Waving" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.503792, -0.0795875, -2.57207 )
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0794922, -2.68361 )
