@@ -1,30 +1,40 @@
 extends RigidBody
 
-const ACCELERATION = 10
+const ACCELERATION = 5
+const RIVER_SPEED = 0
+const ROTATION_TORQUE = 50
+const GRAVITY = 9.8
 var targetXPos = null
 
-func transitionToXPos(xPos, size, delta):
-	if xPos > size / 2:
-		add_torque(Vector3(0,-50,0) * delta)
+func rotate_pressed(delta):
+	var pressedXPos = get_viewport().get_mouse_position()
+	var screen_size = get_viewport().get_size()
+	
+	if pressedXPos > screen_size / 2:
+		add_torque(Vector3(0, -ROTATION_TORQUE, 0) * delta)
 	else:
-		add_torque(Vector3(0,50,0) * delta)
+		add_torque(Vector3(0, ROTATION_TORQUE, 0) * delta)
 
 func stopTransitioningToXPos():
 	targetXPos = null
 
+func apply_downstream_force(delta):
+	apply_central_impulse(Vector3(0,0,-RIVER_SPEED) * delta)
+
+func apply_vertical_forces(delta):
+	var gravityAmount = 0.5
+	var bouyancyAmount = max(0, min(1, (0.17 - translation.y) / 0.17))
+	
+	apply_central_impulse(Vector3(0, (bouyancyAmount - gravityAmount) * GRAVITY * 2 * delta, 0))
+
+func apply_boat_force(delta):
+	var vector = Vector3(sin(rotation.y), 0, cos(rotation.y))
+	apply_central_impulse(vector * ACCELERATION * delta)
+
 func _physics_process(delta):
-	apply_central_impulse(Vector3(0,0,-5) * delta)
-	
-	var velocity = Vector3(sin(rotation_degrees.y),0, cos(rotation_degrees.y)) * 10
-	
-	if Input.is_mouse_button_pressed(2):
-		var vector = Vector3(sin(rotation.y), 0, cos(rotation.y))
-		apply_central_impulse(vector * ACCELERATION * delta)
-	
 	if Input.is_mouse_button_pressed(1):
-		transitionToXPos(get_viewport().get_mouse_position(), get_viewport().get_size(), delta)
+		rotate_pressed(delta)
 	
-	var gravity = 0.5
-	var bouyancy = max(0, min(1, (0.17 - translation.y) / 0.17))
-	
-	apply_central_impulse(Vector3(0, (bouyancy - gravity) * 9.8 * 2 * delta, 0))
+	apply_downstream_force(delta)
+	apply_boat_force(delta)
+	apply_vertical_forces(delta)
