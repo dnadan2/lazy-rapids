@@ -32,10 +32,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50 )
 
 [node name="Lifeboat" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.8, -1.20797e-07, -5.28019e-15, 0, -3.49691e-08, 0.8, -1.20797e-07, 0.8, 3.49691e-08, 0, 0.100723, 0 )
+transform = Transform( -1, -1.50996e-07, -6.60024e-15, 0, -4.37114e-08, 1, -1.50996e-07, 1, 4.37114e-08, 0, 0.100723, 0 )
 
 [node name="Treading Water" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.0794922, -2.68361 )
 
+[node name="Treading Water2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.895392, -0.0794922, -7.64004 )
+
+[node name="Treading Water3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.66029, -0.0794922, -18.5925 )
+
+[node name="Treading Water4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.0083, -0.0794922, -10.1684 )
+
 [node name="rock_tallA" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.19177, -4.9011 )
+
+[node name="rock_tallA2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.23883, -0.19177, -8.64163 )
