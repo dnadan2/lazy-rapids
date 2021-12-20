@@ -1,6 +1,6 @@
 extends RigidBody
 
-const ACCELERATION = 3.5
+const ACCELERATION = 5
 const RIVER_SPEED = 0
 const ROTATION_TORQUE = 50
 const GRAVITY = 9.8
