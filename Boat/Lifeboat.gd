@@ -30,9 +30,6 @@ func rotate_pressed(delta):
 func stopTransitioningToXPos():
 	targetXPos = null
 
-func apply_downstream_force(delta):
-	apply_central_impulse(Vector3(0,0,-RIVER_SPEED) * delta)
-
 func apply_vertical_forces(delta):
 	var gravityAmount = 0.5
 	var bouyancyAmount = max(0, min(1, (0.17 - translation.y) / 0.17))
@@ -47,7 +44,6 @@ func _physics_process(delta):
 	if Input.is_mouse_button_pressed(1):
 		rotate_pressed(delta)
 	
-	apply_downstream_force(delta)
 	apply_boat_force(delta)
 	apply_vertical_forces(delta)
 
