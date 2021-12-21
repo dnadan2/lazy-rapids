@@ -1,15 +1,17 @@
 extends RigidBody
 
-const ACCELERATION = 5
+const ACCELERATION = 6
 const RIVER_SPEED = 0
 const ROTATION_TORQUE = 50
 const GRAVITY = 9.8
+const WATER_LEVEL = 0.085
 var targetXPos = null
+var previousPositions = []
 
 func _ready():
 	GlobalConstants.lifeBoat = self
 	
-	for i in range($Passengers.get_children().size()):
+	for i in range($Passengers.get_child_count()):
 		var multiplier = 1
 		
 		if i % 2 == 1:
@@ -17,6 +19,20 @@ func _ready():
 			
 			
 		$Passengers.get_child(i).scale.x *= multiplier
+
+func get_passenger_count():
+	var count = 0
+	
+	for passenger in $Passengers.get_children():
+		if passenger.visible == true:
+			count += 1
+	
+	return count
+
+func finish():
+	for passenger in $Passengers.get_children():
+		passenger.queue_free()
+		passenger.hide()
 
 func rotate_pressed(delta):
 	var pressedXPos = get_viewport().get_mouse_position()
@@ -32,7 +48,7 @@ func stopTransitioningToXPos():
 
 func apply_vertical_forces(delta):
 	var gravityAmount = 0.5
-	var bouyancyAmount = max(0, min(1, (0.17 - translation.y) / 0.17))
+	var bouyancyAmount = max(0, min(1, ((WATER_LEVEL * 2) - translation.y) / (WATER_LEVEL * 2)))
 	
 	apply_central_impulse(Vector3(0, (bouyancyAmount - gravityAmount) * GRAVITY * 2 * delta, 0))
 
@@ -41,6 +57,11 @@ func apply_boat_force(delta):
 	apply_central_impulse(vector * ACCELERATION * delta)
 
 func _physics_process(delta):
+	previousPositions.append($Lifeboat.global_transform)
+	
+	if previousPositions.size() > 20:
+		previousPositions.pop_front()
+	
 	if Input.is_mouse_button_pressed(1):
 		rotate_pressed(delta)
 	
@@ -52,3 +73,20 @@ func add_passenger():
 		if passenger.visible == false:
 			passenger.visible = true
 			return
+
+func hide_passengers(amount):
+	for i in range($Passengers.get_child_count()-1, -1, -1):
+		var passenger = $Passengers.get_child(i)
+		if passenger.visible == true:
+			passenger.visible = false
+			amount -= 1
+		
+		if amount == 0:
+			return
+
+func drop_passengers():
+	var passengersDropped = min(2, get_passenger_count())
+	
+	hide_passengers(passengersDropped)
+	#hide up to 2 passengers
+	#place passengers in WATER_LEVEL

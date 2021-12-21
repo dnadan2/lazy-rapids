@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Scenery/River/dirt.material" type="Material" id=1]
 [ext_resource path="res://Assets/Scenery/River/dirtDark.material" type="Material" id=2]
 [ext_resource path="res://Assets/Scenery/River/grass.material" type="Material" id=3]
 [ext_resource path="res://Assets/Scenery/River/water.material" type="Material" id=4]
 [ext_resource path="res://Shaders/RoystanToonWaterShader.tres" type="Material" id=5]
+[ext_resource path="res://Scenery/Finish.gd" type="Script" id=6]
+[ext_resource path="res://Characters/Cheering.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ArrayMesh" id=1]
 blend_shape_mode = 0
@@ -66,7 +68,11 @@ data = PoolVector3Array( -0.155, -0.05, -0.125, -0.186, -0.025, 0.125, -0.217, 0
 
 [sub_resource type="QuadMesh" id=3]
 
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 4.38864, 1, 1.75755 )
+
 [node name="ground_riverEnd" type="StaticBody"]
+script = ExtResource( 6 )
 
 [node name="ground_riverEnd" type="MeshInstance" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
@@ -84,3 +90,46 @@ shape = SubResource( 2 )
 transform = Transform( 10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, 0, -0.14, 0 )
 mesh = SubResource( 3 )
 material/0 = ExtResource( 5 )
+
+[node name="Area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.40594 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 4 )
+
+[node name="Passengers" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8298 )
+
+[node name="Cheering1" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0896432, 0, -0.0443181, 0, 0.1, 0, 0.0443181, 0, -0.0896432, 0.668851, 0, 1.20407 )
+visible = false
+
+[node name="Cheering2" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0986159, 0, 0.0165805, 0, 0.1, 0, -0.0165805, 0, -0.0986159, 0.311948, 0, 1.44821 )
+visible = false
+
+[node name="Cheering3" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0995763, 0, 0.00919536, 0, 0.1, 0, -0.00919536, 0, -0.0995763, -0.18477, 0, 1.61929 )
+visible = false
+
+[node name="Cheering4" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0272633, 0, 0.0962118, 0, 0.1, 0, -0.0962118, 0, -0.0272633, -0.701604, 0, 1.21718 )
+visible = false
+
+[node name="Cheering5" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0837414, 0, 0.054657, 0, 0.1, 0, -0.054657, 0, -0.0837414, -0.298343, 0, 1.3703 )
+visible = false
+
+[node name="Cheering6" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0568863, 0, -0.0822432, 0, 0.1, 0, 0.0822432, 0, -0.0568863, 0.748045, 0, 1.47864 )
+visible = false
+
+[node name="Cheering7" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0989065, 0, -0.0147481, 0, 0.1, 0, 0.0147481, 0, -0.0989065, 0.185099, 0, 1.75687 )
+visible = false
+
+[node name="Cheering8" parent="Passengers" instance=ExtResource( 7 )]
+transform = Transform( -0.0626196, 0, 0.0779666, 0, 0.1, 0, -0.0779666, 0, -0.0626196, -0.558267, 0, 1.5278 )
+visible = false
+
+[connection signal="body_entered" from="Area" to="." method="_on_Area_body_entered"]

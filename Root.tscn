@@ -22,28 +22,28 @@ shadow_enabled = true
 transform = Transform( -1, -1.50996e-07, -6.60024e-15, 0, -4.37114e-08, 1, -1.50996e-07, 1, 4.37114e-08, 0, 0.1, 0 )
 
 [node name="Treading Water" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.29529, -0.0794922, -31.0279 )
+transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, 0.29529, -0.0794922, -31.0279 )
 
 [node name="Treading Water2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.104608, -0.0794922, -7.64004 )
+transform = Transform( 0.0889544, 0, -0.045685, 0, 0.1, 0, 0.045685, 0, 0.0889544, 0.105, -0.085, -7.64 )
 
 [node name="Treading Water3" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.53486, -0.0794922, -18.5925 )
+transform = Transform( 0.0707107, 0, 0.0707107, 0, 0.1, 0, -0.0707107, 0, 0.0707107, 8.53486, -0.0794922, -18.5925 )
 
 [node name="Treading Water4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 6.0083, -0.0794922, -10.1684 )
+transform = Transform( 0.0258819, 0, -0.0965926, 0, 0.1, 0, 0.0965926, 0, 0.0258819, 6.0083, -0.0794922, -10.1684 )
 
 [node name="Treading Water5" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0340004, -0.0794922, -25.2755 )
+transform = Transform( 0.0965926, 0, 0.0258819, 0, 0.1, 0, -0.0258819, 0, 0.0965926, -0.0340004, -0.0794922, -25.2755 )
 
 [node name="Treading Water6" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.17284, -0.0794922, -19.7174 )
+transform = Transform( 0.0258819, 0, 0.0965926, 0, 0.1, 0, -0.0965926, 0, 0.0258819, 1.17284, -0.0794922, -19.7174 )
 
 [node name="Treading Water7" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 1.11079, -0.0794922, -35.297 )
+transform = Transform( 0.0965926, 0, -0.0258819, 0, 0.1, 0, 0.0258819, 0, 0.0965926, 1.11079, -0.0794922, -35.297 )
 
 [node name="Treading Water8" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 10.972, -0.0794922, -15.4973 )
+transform = Transform( 0.0948523, 0, -0.0316709, 0, 0.1, 0, 0.0316709, 0, 0.0948523, 10.972, -0.0794922, -15.4973 )
 
 [node name="rock_tallA4" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.895, -0.192, -15.7269 )
