@@ -2,8 +2,8 @@ extends StaticBody
 
 func _on_Area_body_entered(body):
 	if body == GlobalConstants.lifeBoat:
-		$Passengers.global_transform.origin.x = GlobalConstants.lifeBoat.global_transform.origin.x
-		$Passengers.global_transform.origin.z = GlobalConstants.lifeBoat.global_transform.origin.z
+		$Passengers.get_global_transform().origin.x = GlobalConstants.lifeBoat.get_global_transform().origin.x
+		$Passengers.get_global_transform().origin.z = GlobalConstants.lifeBoat.get_global_transform().origin.z
 		show_cheers()
 		GlobalConstants.lifeBoat.finish()
 

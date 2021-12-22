@@ -17,7 +17,6 @@ func _ready():
 		if i % 2 == 1:
 			multiplier = -1
 			
-			
 		$Passengers.get_child(i).scale.x *= multiplier
 
 func get_passenger_count():
@@ -57,7 +56,7 @@ func apply_boat_force(delta):
 	apply_central_impulse(vector * ACCELERATION * delta)
 
 func _physics_process(delta):
-	previousPositions.append($Lifeboat.global_transform)
+	previousPositions.append($Lifeboat.get_global_transform())
 	
 	if previousPositions.size() > 20:
 		previousPositions.pop_front()
@@ -73,6 +72,22 @@ func add_passenger():
 		if passenger.visible == false:
 			passenger.visible = true
 			return
+			
+func place_passengers_in_water(amount):
+	var passengerScale = $Passengers.scale 
+	$Passengers.set_global_transform(previousPositions[0])
+	$Passengers.scale = passengerScale
+	
+	for i in range($Passengers.get_child_count()-1, -1, -1):
+		var passenger = $Passengers.get_child(i)
+		
+		if passenger.visible == true:
+			GlobalConstants.swimmerSpawner.add_swimmer(passenger.get_global_transform())
+			
+			amount -= 1
+		
+		if amount == 0:
+			return
 
 func hide_passengers(amount):
 	for i in range($Passengers.get_child_count()-1, -1, -1):
@@ -87,6 +102,5 @@ func hide_passengers(amount):
 func drop_passengers():
 	var passengersDropped = min(2, get_passenger_count())
 	
+	place_passengers_in_water(passengersDropped)
 	hide_passengers(passengersDropped)
-	#hide up to 2 passengers
-	#place passengers in WATER_LEVEL
