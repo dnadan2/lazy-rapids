@@ -3,16 +3,17 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.s3tc.stex"
+path.etc2="res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.etc2.stex"
 path.etc="res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.etc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "s3tc", "etc2", "etc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Assets/2D/WaterDistortion.png"
-dest_files=[ "res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.s3tc.stex", "res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.etc.stex" ]
+dest_files=[ "res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.s3tc.stex", "res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.etc2.stex", "res://.import/WaterDistortion.png-09dddfaabc78c2f38b8b746c3f810f47.etc.stex" ]
 
 [params]
 
