@@ -3,6 +3,9 @@ extends Node2D
 const margin = 5
 const halfArrowSize = 250
 
+func _init():
+	GlobalConstants.controls = self
+
 func _ready():
 	window_resize()
 	get_tree().get_root().connect("size_changed", self, "window_resize")

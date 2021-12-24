@@ -9,9 +9,10 @@ var targetXPos = null
 var previousPositions = []
 var started = false
 
-func _ready():
+func _init():
 	GlobalConstants.lifeBoat = self
 	
+func _ready():
 	for i in range($Passengers.get_child_count()):
 		var multiplier = 1
 		
@@ -55,6 +56,9 @@ func apply_vertical_forces(delta):
 func apply_boat_force(delta):
 	var vector = Vector3(sin(rotation.y), 0, cos(rotation.y))
 	apply_central_impulse(vector * ACCELERATION * delta)
+
+func start():
+	started = true
 
 func _physics_process(delta):
 	previousPositions.append($Lifeboat.get_global_transform())
