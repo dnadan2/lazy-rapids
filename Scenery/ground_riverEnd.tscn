@@ -98,7 +98,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.40594 )
 shape = SubResource( 4 )
 
 [node name="Passengers" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.8298 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5 )
 
 [node name="Cheering1" parent="Passengers" instance=ExtResource( 7 )]
 transform = Transform( -0.0896432, 0, -0.0443181, 0, 0.1, 0, 0.0443181, 0, -0.0896432, 0.668851, 0, 1.20407 )
