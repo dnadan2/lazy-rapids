@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/Treading Water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenery/ground_riverStraight.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenery/ground_riverEnd.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenery/ground.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Spawners/SwimmerSpawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Hud/Controls.tscn" type="PackedScene" id=11]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 6 )
@@ -212,3 +213,5 @@ transform = Transform( 10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -20,
 transform = Transform( 10, 0, 0, 0, -4.37114e-07, 10, 0, -10, -4.37114e-07, -20, 0.27, -30 )
 
 [node name="SwimmerSpawner" parent="." instance=ExtResource( 10 )]
+
+[node name="Controls" parent="." instance=ExtResource( 11 )]

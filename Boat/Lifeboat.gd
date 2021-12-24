@@ -7,6 +7,7 @@ const GRAVITY = 9.8
 const WATER_LEVEL = 0.085
 var targetXPos = null
 var previousPositions = []
+var started = false
 
 func _ready():
 	GlobalConstants.lifeBoat = self
@@ -64,15 +65,16 @@ func _physics_process(delta):
 	if Input.is_mouse_button_pressed(1):
 		rotate_pressed(delta)
 	
-	apply_boat_force(delta)
-	apply_vertical_forces(delta)
+	if started:
+		apply_boat_force(delta)
+		apply_vertical_forces(delta)
 
 func add_passenger():
 	for passenger in $Passengers.get_children():
 		if passenger.visible == false:
 			passenger.visible = true
 			return
-			
+
 func place_passengers_in_water(amount):
 	var passengerScale = $Passengers.scale 
 	$Passengers.set_global_transform(previousPositions[0])
